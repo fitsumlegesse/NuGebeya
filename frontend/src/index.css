@@ -3,10 +3,18 @@ main {
 }
 
 .color-nav {
-  background-color: lightgreen;
-  color: lightgreen;
+  background-color: #7699d4;
+  color: #7699d4;
 }
 
 .homescreen-text {
   color: black;
+}
+
+h3 {
+  padding: 1 rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
 }

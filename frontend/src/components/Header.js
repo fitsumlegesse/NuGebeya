@@ -2,7 +2,17 @@ import React from 'react'
 import {Navbar, Nav, Container } from 'react-bootstrap'
 
 const navText = {
-    color: 'black',
+    color: 'white',
+    paddingLeft: "10px",
+    fontWeight: 'bold',
+  };
+const icons = {
+    color: 'white',
+    paddingRight: "10px",
+  };
+const toggle = {
+    backgroundColor: 'white',
+    
   };
 
 const Header = () => {
@@ -11,11 +21,11 @@ const Header = () => {
     <Navbar className="color-nav" varient="" expand="lg" collapseOnSelect>
         <Container>
             <Navbar.Brand className='nav-text' href="/" style={navText}>ገበያ</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle style={toggle} aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link className='nav-text' href="/cart" style={navText}><i className= 'fas fa-shopping-cart'></i>Cart</Nav.Link>
-                    <Nav.Link className='nav-text'href="/login" style={navText}><i className= 'fas fa-user'></i>Sign In</Nav.Link>  
+                    <Nav.Link className='nav-text' href="/cart" style={navText}><i style={icons} className= 'fas fa-shopping-cart'></i>ጋሪ</Nav.Link>
+                    <Nav.Link className='nav-text'href="/login" style={navText}><i style={icons} className= 'fas fa-user'></i>ይግቡ</Nav.Link>  
                 </Nav>
             </Navbar.Collapse>
         </Container>

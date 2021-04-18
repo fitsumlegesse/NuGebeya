@@ -1,8 +1,20 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import Rating from './Rating'
 
 const divStyle = {
     color: 'black',
+  };
+
+  const priceProp = {
+    color: 'white',
+    fontWeight: 'bold',
+  };
+  const cardTextProp = {
+    color: 'white',
+  };
+  const cardBody = {
+    backgroundColor: '#7699d4',
   };
   
 const Product = ({ product }) => {
@@ -13,18 +25,18 @@ const Product = ({ product }) => {
                 <Card.Img src={product.image} varient='top'/>
             </a>
 
-            <Card.Body>
+            <Card.Body style={cardBody}>
                 <a href={`/product/${product._id}`}>
                     <Card.Title as='div'>
-                        <strong style={divStyle}>{product.name}</strong>
+                        <strong style={cardTextProp}>{product.name}</strong>
                     </Card.Title>
                 </a>
                 <Card.Text as='div' style={divStyle}>
-                    <div > 
-                        {product.rating} from {product.numReviews} reviews 
+                    <div style={cardTextProp}> 
+                        <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                     </div>
                 </Card.Text>
-                <Card.Text as='h3' style={divStyle}> ${product.price}</Card.Text>
+                <Card.Text as='h3' style={priceProp}> ${product.price}</Card.Text>
             </Card.Body>
         </Card>
     )
