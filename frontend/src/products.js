@@ -9,7 +9,7 @@ const products = [
     category: 'Electronics',
     price: 89.99,
     countInStock: 10,
-    rating: 4.5,
+    rating: 4,
     numReviews: 12,
   },
   {
@@ -21,7 +21,7 @@ const products = [
     brand: 'Apple',
     category: 'Electronics',
     price: 599.99,
-    countInStock: 7,
+    countInStock: 0,
     rating: 4.0,
     numReviews: 8,
   },
@@ -78,7 +78,7 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '6',
+    _id: '7',
     name: 'Ethiopian Coffee Pot (ጀበና)',
     image: '/images/jebena.jpg',
     description:
