@@ -77,6 +77,19 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    _id: '6',
+    name: 'Ethiopian Coffee Pot (ጀበና)',
+    image: '/images/jebena.jpg',
+    description:
+      'Ethiopian coffee pot for authentic Ethiopian coffee',
+    brand: 'Weyene Jebena',
+    category: 'Undecided',
+    price: 29.99,
+    countInStock: 12,
+    rating: 2.5,
+    numReviews: 82,
+  },
 ]
 
 export default products
