@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
 import Rating from '../components/Rating'
+import ButtonM from '@material-ui/core/Button'
 import axios from 'axios'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 
+  
 
 
 const ProductScreen = ({ match }) => {
@@ -17,12 +20,24 @@ const ProductScreen = ({ match }) => {
         }
  
         fetchProduct()
-    }, [])
+    }, [match])
     return (
         <>
-            <Link className='btn btn-dark my-3' to='/'>
+        <Link style={{ textDecoration: 'none' }} to='/'>
+            <ButtonM 
+                    className="Button"
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    style={{background:'#7699d4', marginBottom: '5px',  }}
+            >
+                    Go Back
+            </ButtonM>
+        </Link>
+            
+            {/* <Link className='btn btn-dark my-3' to='/'>
                 Go Back
-            </Link>
+            </Link> */}
             <Row>
                 <Col md={6}>
                     <Image src={product.image} alt={product.name} fluid />
@@ -65,9 +80,17 @@ const ProductScreen = ({ match }) => {
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <Button  className='btn-block' type='button' disabled={product.countInStock === 0}>
+                                <ButtonM
+                                 endIcon={<AddShoppingCartIcon />}
+                                 className="Button"
+                                 size="large"
+                                 variant="contained"
+                                 color="primary"
+                                 style={{background:'#7699d4', }}
+                                >
                                     Add To Cart
-                                </Button>
+                                </ButtonM>
+                                
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>
