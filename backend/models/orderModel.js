@@ -75,7 +75,7 @@ const orderSchema = mongoose.Schema(
     deliveredAt:{
         type: Date
     },
-}{
+},{
     timestamps : true
 })
 
