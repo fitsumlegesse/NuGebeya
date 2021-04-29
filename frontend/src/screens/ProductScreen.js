@@ -21,6 +21,7 @@ const ProductScreen = ({ match }) => {
  
         fetchProduct()
     }, [match])
+    console.log("Hellllllllo Products")
     return (
         <>
         <Link style={{ textDecoration: 'none' }} to='/'>
