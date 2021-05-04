@@ -21,7 +21,7 @@ export const productDetailReducer = (state={ product : {reviews:[]}}, action)=>{
             return {loading: false, product: action.payload}
         case PRODUCT_DETAILS_FAIL:
             return { loading: false, error: action.payload}
-        default:
+        default: 
             return state
     }
 }
