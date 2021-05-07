@@ -5,7 +5,7 @@ import { Alert } from '@material-ui/lab'
 const Message = ({severity,children}) => {
     return (
     
-        <Alert variant="filled" severity={severity}> {children}</Alert>
+        <Alert  severity={severity}> {children}</Alert>
     )
 }
 

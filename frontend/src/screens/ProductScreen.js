@@ -110,6 +110,7 @@ const ProductScreen = ({ history, match }) => {
                  onClick={addToCartHandler}
                  endIcon={<AddShoppingCartIcon />}
                  className="Button"
+                 disabled={product.countInStock === 0}
                  size="large"
                  variant="contained"
                  color="primary"

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
-import { addToCart } from '../actions/cartActions'
+import ButtonM from '@material-ui/core/Button'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = ({match, location, history}) => {
     const productId = match.params.id
     
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
+    //?qty=1
 
     const dispatch = useDispatch()
 
@@ -24,7 +26,7 @@ const CartScreen = ({match, location, history}) => {
     }, [ dispatch, productId, qty])
     
     const removeFromCartHandler = (id) => {
-        console.log('remove')
+        dispatch(removeFromCart(id))
     }
 
     const checkOutHandler = () => {
@@ -37,8 +39,8 @@ const CartScreen = ({match, location, history}) => {
             <Col md={8}>
                 <h1>Shopping Cart </h1>
                 {cartItems.length === 0 ? (
-                    <Message>
-                        Your cart is empty <Link to='/'>Go Back </Link>
+                    <Message >
+                        Your cart is empty <Link to='/' style={{color: 'black'}}>Go Back </Link>
                     </Message>
                 ):(
                     <ListGroup varient='flush'>
@@ -49,7 +51,7 @@ const CartScreen = ({match, location, history}) => {
                                         <Image src={item.image} alt={item.name} fluid rounded />
                                     </Col>
                                     <Col md={3}>
-                                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                        <Link to={`/product/${item.product}`}  style={{color: 'black' }}>{item.name}</Link>
                                     </Col>
                                     <Col md={2}>${item.price}</Col>
                                     <Col md={2}>
@@ -91,10 +93,19 @@ const CartScreen = ({match, location, history}) => {
                             }
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandler}
-                            >
-                                Proceed to checkout
-                            </Button>
+                        <ButtonM 
+                            className="Button"
+                            size="large"
+                            variant="contained"
+                            disabled={cartItems.length === 0}
+                            color="primary"
+                            onClick={checkOutHandler}
+                            style={{background:'#7699d4', marginBottom: '5px',  }}
+                        >
+                                 Proceed to checkout
+                        </ButtonM>
+                            
+                        {/* <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandler}>Proceed to checkout</Button> */}
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>
