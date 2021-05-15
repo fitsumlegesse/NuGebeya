@@ -4,7 +4,7 @@ import { Form, Button, Row, Col} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader  from '../components/Loader'
-import { getUserDetails } from '../actions/userAction'
+import { getUserDetails, updateUserProfile } from '../actions/userAction'
 // import { userDetailsReducer } from '../reducers/userReducers'
 
 const ProfileScreen = ({ location, history }) => {
@@ -19,6 +19,8 @@ const ProfileScreen = ({ location, history }) => {
     
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
+    const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+    const { success  } = userUpdateProfile
 
     const dispatch = useDispatch()
 
@@ -44,7 +46,7 @@ const ProfileScreen = ({ location, history }) => {
             setMessage('Password do not match')
             console.log("pwd do not match ")
         }else{
-            //Dispatch
+            dispatch(updateUserProfile({ id: user._id, name, email, password}))
         }
         
 
@@ -56,6 +58,7 @@ const ProfileScreen = ({ location, history }) => {
             <h2>User Profile</h2>
            {message && <Message varient='danger'>{message}</Message>}
            {error && <Message varient='danger'>{error}</Message>}
+           {success && <Message varient='success'>Profile Updated </Message>}
            {loading && <Loader />}
 
         <Form onSubmit={submitHandler}>
