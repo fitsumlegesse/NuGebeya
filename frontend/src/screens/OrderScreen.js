@@ -33,7 +33,7 @@ const OrderScreen = ({match}) => {
         if(!order || order._id !== orderId) {
             dispatch(getOrderDetails(orderId))
         }
-    },[])
+    },[dispatch, orderId])
 
     
 
